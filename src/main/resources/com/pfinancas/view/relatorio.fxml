@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pfinancas.controle.RelatorioControle"
+      styleClass="paginaFormulario">
+
+    <Label text="Relatório financeiro"
+           styleClass="titulo"/>
+
+    <Label text="Resumo das suas movimentações"
+           styleClass="subtitulo"/>
+
+    <VBox styleClass="cardSaldo">
+        <Label text="SALDO ATUAL"
+               styleClass="tituloSaldo"/>
+
+        <Label fx:id="labelSaldo"
+               text="R$ 0,00"
+               styleClass="saldo"/>
+    </VBox>
+
+    <CheckBox fx:id="checkDetalhes"
+              text="Mostrar detalhes das transações"
+              onAction="#mostrarDetalhes"
+              styleClass="checkRelatorio"/>
+
+    <TextArea fx:id="areaResumo"
+              editable="false"
+              visible="false"
+              managed="false"
+              prefRowCount="12"
+              styleClass="areaResumo"/>
+
+    <HBox styleClass="acoesRelatorio">
+        <Button fx:id="botaoVoltar"
+                text="Voltar"
+                onAction="#voltar"
+                styleClass="botaoRemover"/>
+    </HBox>
+
+</VBox>
