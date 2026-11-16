@@ -16,6 +16,7 @@ import com.pfinancas.dao.Conexao;
 import com.pfinancas.dao.TransacaoDAO;
 import com.pfinancas.model.TipoTransacao;
 import com.pfinancas.model.Transacao;
+import java.math.BigDecimal;
 
 public class FinancasServicoTest{
 
@@ -46,7 +47,10 @@ public class FinancasServicoTest{
         boolean resultado = servico.realizarTransacao(dao, receita);
 
         assertTrue(resultado);
-        assertEquals(3000, servico.calcularSaldo(dao));
+        assertEquals(
+            0,
+            new BigDecimal("3000.00").compareTo(servico.calcularSaldo(dao))
+        );
     }
 
     @Test
@@ -64,7 +68,10 @@ public class FinancasServicoTest{
 
         boolean resultado = servico.realizarTransacao(dao,despesa);
         assertFalse(resultado);
-        assertEquals(3000, servico.calcularSaldo(dao));
+        assertEquals(
+            0,
+            new BigDecimal("3000.00").compareTo(servico.calcularSaldo(dao))
+        );
     }
 
     @AfterEach

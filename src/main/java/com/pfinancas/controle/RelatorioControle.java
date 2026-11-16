@@ -1,10 +1,12 @@
+
 package com.pfinancas.controle;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import com.pfinancas.dao.TransacaoDAO;
-import com.pfinancas.model.Transacao;
 import com.pfinancas.model.TipoTransacao;
+import com.pfinancas.model.Transacao;
 import com.pfinancas.servico.FinancasServico;
 
 import javafx.fxml.FXML;
@@ -36,7 +38,7 @@ public class RelatorioControle {
     @FXML
     private void initialize() {
 
-        double saldo = servico.calcularSaldo(dao);
+        BigDecimal saldo = servico.calcularSaldo(dao);
 
         labelSaldo.setText(
             String.format("R$ %.2f", saldo)
@@ -47,8 +49,8 @@ public class RelatorioControle {
 
     private void carregarResumo() {
 
-        double totalReceitas = 0;
-        double totalDespesas = 0;
+        BigDecimal totalReceitas = BigDecimal.ZERO;
+        BigDecimal totalDespesas = BigDecimal.ZERO;
         int quantidade = 0;
 
         StringBuilder texto = new StringBuilder();
@@ -58,9 +60,10 @@ public class RelatorioControle {
             quantidade++;
 
             if (transacao.getTipo() == TipoTransacao.RECEITA) {
-                totalReceitas += transacao.getValor();
+                totalReceitas = totalReceitas.add(transacao.getValor());
+
             } else if (transacao.getTipo() == TipoTransacao.DESPESA) {
-                totalDespesas += transacao.getValor();
+                totalDespesas = totalDespesas.add(transacao.getValor());
             }
 
             texto.append(transacao.getData())

@@ -7,6 +7,7 @@ import com.pfinancas.model.TipoTransacao;
 import com.pfinancas.servico.FinancasServico;
 import com.pfinancas.dao.Conexao;
 import com.pfinancas.dao.TransacaoDAO;
+import java.math.BigDecimal;
 
 import java.sql.Connection;
 
@@ -54,7 +55,7 @@ public class Pfinancas {
             System.out.println("\n");
         }
 
-        double s =  servico.calcularSaldo(dao);
+        BigDecimal s = servico.calcularSaldo(dao);
         System.out.println(s);
         System.out.println(t2.getId());
     }

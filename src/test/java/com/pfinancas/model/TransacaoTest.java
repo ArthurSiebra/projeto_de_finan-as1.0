@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.time.LocalDate;
+import java.math.BigDecimal;
 
 
 public class TransacaoTest {
@@ -11,7 +12,7 @@ public class TransacaoTest {
     public void transacaoValorCorreto(){
         Transacao t = new Transacao("Sálario", 3000, TipoTransacao.RECEITA, LocalDate.of(2026, 9, 13));
 
-        assertEquals(3000, t.getValor());
+        assertEquals(0, new BigDecimal("3000.00").compareTo(t.getValor()));
     }
     @Test 
     public  void transacaoDescricaoCorreta(){

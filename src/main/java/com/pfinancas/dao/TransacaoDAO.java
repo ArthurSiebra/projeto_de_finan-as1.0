@@ -32,7 +32,7 @@ public class TransacaoDAO {
             PreparedStatement b = a.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ){
             b.setString(1, transacao.getDescricao());
-            b.setDouble(2, transacao.getValor());
+            b.setBigDecimal(2, transacao.getValor());
             b.setString(3, transacao.getTipo().name());
             b.setString(4, transacao.getData().toString());
             b.executeUpdate();
@@ -101,10 +101,10 @@ public class TransacaoDAO {
             PreparedStatement b = a.prepareStatement(sql);
         ){
             b.setString(1, transacao.getDescricao());
-            b.setDouble(2, transacao.getValor());
+            b.setBigDecimal(2, transacao.getValor());
             b.setString(3, transacao.getTipo().name());
             b.setString(4, transacao.getData().toString());
-            b.setInt(5, transacao.getId());
+            b.setLong(5, transacao.getId());
 
             b.executeUpdate();
         }
