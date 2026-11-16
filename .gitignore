@@ -2,3 +2,6 @@ target/
 *.class
 .vscode/
 .idea/
+
+# Backups locais
+*.backup
