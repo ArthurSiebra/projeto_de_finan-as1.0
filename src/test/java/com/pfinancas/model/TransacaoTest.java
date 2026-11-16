@@ -1,11 +1,12 @@
 package com.pfinancas.model;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import java.time.LocalDate;
-import java.math.BigDecimal;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
 
 public class TransacaoTest {
     @Test

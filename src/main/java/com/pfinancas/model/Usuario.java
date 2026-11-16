@@ -72,4 +72,8 @@ public class Usuario {
     public List<Categoria> getCategorias() {
         return categorias;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

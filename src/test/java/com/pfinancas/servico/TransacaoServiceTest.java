@@ -28,6 +28,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
+import com.pfinancas.exception.ResourceNotFoundException;
 
 class TransacaoServiceTest {
 
@@ -242,7 +243,7 @@ void deveImpedirDespesaComSaldoInsuficiente() {
                 .thenReturn(Optional.empty());
 
         assertThrows(
-                IllegalArgumentException.class,
+                ResourceNotFoundException.class,
                 () -> transacaoService.cadastrarTransacao(
                         usuarioId, categoriaId, receita
                 )
