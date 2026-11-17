@@ -19,6 +19,7 @@ import com.pfinancas.model.TipoTransacao;
 import com.pfinancas.model.Transacao;
 import com.pfinancas.servico.FinancasServico;
 import com.pfinancas.dao.TransacaoDAO;
+import java.math.BigDecimal;
 
 public class TelaPrincipalControle {
 
@@ -34,7 +35,7 @@ public class TelaPrincipalControle {
     private TableColumn<Transacao, String> colunaDescricao;
 
     @FXML 
-    private TableColumn<Transacao, Double> colunaValor;
+    private TableColumn<Transacao, BigDecimal> colunaValor;
 
     @FXML
     private TableColumn<Transacao,TipoTransacao> colunaTipo;
@@ -108,7 +109,7 @@ public class TelaPrincipalControle {
         ArrayList<Transacao> lista = dao.listar();
         tabelaTransacoes.getItems().setAll(lista);
 
-        double saldo = servico.calcularSaldo(dao);
+        BigDecimal saldo = servico.calcularSaldo(dao);
         labelSaldo.setText(String.format("Saldo atual: R$ %.2f", saldo));
 
     }

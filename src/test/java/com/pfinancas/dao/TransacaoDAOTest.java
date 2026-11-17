@@ -55,7 +55,7 @@ public class TransacaoDAOTest {
       );
 
         dao.inserir(t);
-        dao.remover(t.getId());
+        dao.remover(Math.toIntExact(t.getId()));
         assertEquals(0, dao.listar().size());
     }
 
